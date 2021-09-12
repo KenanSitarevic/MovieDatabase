@@ -1,0 +1,19 @@
+<div class="card">
+  <img
+    *ngIf="image"
+    [src]="imgPath + image"
+    class="card-img-top"
+    alt="Poster"
+  />
+  <img
+    *ngIf="!image"
+    src="assets/default_image.jpg"
+    class="card-img-top"
+    alt="Poster"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text"></p>
+    <a href="{{ category }}/{{ id }}" class="btn btn-primary">More info</a>
+  </div>
+</div>

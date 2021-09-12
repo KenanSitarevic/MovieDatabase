@@ -1,0 +1,14 @@
+<a
+  class="btn col-5"
+  [class.btn-primary]="activeClass !== 'movie'"
+  [class.btn-secondary]="activeClass == 'movie'"
+  (click)="changeCategory('movie')"
+  >Movies</a
+>
+<a
+  class="btn col-5"
+  [class.btn-primary]="activeClass !== 'tv'"
+  [class.btn-secondary]="activeClass == 'tv'"
+  (click)="changeCategory('tv')"
+  >Series</a
+>

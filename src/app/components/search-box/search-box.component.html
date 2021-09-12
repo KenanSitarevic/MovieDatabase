@@ -1,0 +1,15 @@
+<div class="input-group">
+  <input
+    type="search"
+    class="form-control col-5 rounded my-2"
+    placeholder="Search"
+    (input)="onTextSearch($event)"
+  />
+</div>
+<div
+  *ngIf="isLoading"
+  class="spinner-border text-primary mx-auto"
+  role="status"
+>
+  <span class="sr-only"></span>
+</div>

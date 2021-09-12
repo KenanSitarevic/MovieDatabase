@@ -1,0 +1,16 @@
+<div class="details">
+  <img
+    *ngIf="details.backdrop_path"
+    [src]="imgPath + details.backdrop_path"
+    class="card-img-top"
+    alt="Poster"
+  />
+  <img
+    *ngIf="!details.backdrop_path"
+    src="assets/default_image.jpg"
+    class="card-img-top"
+    alt="Poster"
+  />
+  <h1>{{ details.title }}</h1>
+  <p>{{ details.overview }}</p>
+</div>

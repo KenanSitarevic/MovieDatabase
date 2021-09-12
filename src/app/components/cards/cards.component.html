@@ -1,0 +1,14 @@
+<div class="rounded container">
+  <app-tabs class="row justify-content-between m-2"></app-tabs>
+</div>
+<app-card-item
+  *ngFor="let result of results"
+  class="col-12 col-lg-3 my-2 mx-0 mx-lg-2"
+  title="{{ result.title }}"
+  image="{{ result.backdrop_path }}"
+  id="{{ result.id }}"
+  category="{{ result.category }}"
+>
+</app-card-item>
+
+<h2 *ngIf="results.length == 0">No results</h2>
