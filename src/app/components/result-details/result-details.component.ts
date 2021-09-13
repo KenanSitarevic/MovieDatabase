@@ -14,14 +14,11 @@ export class ResultDetailsComponent implements OnInit {
   imgPath: String = 'https://image.tmdb.org/t/p/original';
 
   constructor(private router: Router, private resultService: ResultService) {
-    console.log('haloooo', this.router.url);
     this.url = this.router.url;
   }
 
   ngOnInit() {
     this.resultService.results$.subscribe((data) => {
-      console.log('data');
-      console.log(data);
       this.details = data;
     });
 

@@ -19,8 +19,7 @@ export class ResultService {
     'https://api.themoviedb.org/3/search/movie' + API_KEY;
   private seriesSearchApiUrl =
     'https://api.themoviedb.org/3/search/tv' + API_KEY;
-  private movieByIdApiUrl = 'https://api.themoviedb.org/3';
-  private seriesByIdApiUrl = 'https://api.themoviedb.org/3/tv/';
+  private resultsByIdApiUrl = 'https://api.themoviedb.org/3';
 
   activeCategory!: 'movie' | 'tv' | '';
   private activeSearchTerm: string = '';
@@ -59,7 +58,7 @@ export class ResultService {
       .pipe(
         map((data: any) => {
           data.results.map((item: any) => {
-            item.category = 'tv';
+            item.category = 'movie';
             return item;
           });
           return data;
@@ -81,11 +80,8 @@ export class ResultService {
       );
   }
 
-  private getMovieById(id: string): Observable<Result> {
-    return this.http.get<Result>(this.movieByIdApiUrl + id + API_KEY);
-  }
-  private getSerieById(url: string): Observable<Result> {
-    return this.http.get<Result>(this.movieByIdApiUrl + url + API_KEY).pipe(
+  private getResultsById(url: string): Observable<Result> {
+    return this.http.get<Result>(this.resultsByIdApiUrl + url + API_KEY).pipe(
       map((data: any) => {
         if (data.name != null) {
           data.title = data.name;
@@ -127,7 +123,7 @@ export class ResultService {
       fetchData$ = this.getSerieSearchResults(searchTerm);
     }
     if (url) {
-      fetchData$ = this.getSerieById(url);
+      fetchData$ = this.getResultsById(url);
     }
     fetchData$.subscribe((data) => {
       this.results$.next(data);
